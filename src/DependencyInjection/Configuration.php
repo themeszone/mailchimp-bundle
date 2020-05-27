@@ -18,12 +18,11 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('welp_mailchimp');
-        $rootNode = $treeBuilder->getRootNode();
 
-        $rootNode
+
+        $treeBuilder->getRootNode()
             ->children()
                 ->scalarNode('api_key')
-                    ->isRequired()
                 ->end()
                 ->scalarNode('list_provider')
                     ->defaultValue('welp_mailchimp.list_provider')
