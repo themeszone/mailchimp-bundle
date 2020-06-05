@@ -77,7 +77,8 @@ class ListRepository
         $result = $this->mailchimp->put("lists/$listId/members/$subscriberHash",
             array_merge(
                 $subscriber->formatMailChimp(),
-                ['status' => $status]
+                ['status' => $status],
+                ['language' => $subscriber->getOptions()['language']]
             )
         );
 
